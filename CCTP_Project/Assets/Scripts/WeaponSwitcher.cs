@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,7 +11,7 @@ public class WeaponSwitcher : MonoBehaviour
     [SerializeField] int currentWeapon = 0;
     [SerializeField] float timeBetweenSwaps = 0.15f;
 
-    bool canSwap = true;
+    public bool canSwap = true;
 
     private void OnEnable()
     {

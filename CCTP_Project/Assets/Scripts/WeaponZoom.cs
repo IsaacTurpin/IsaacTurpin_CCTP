@@ -15,6 +15,7 @@ public class WeaponZoom : MonoBehaviour
     [SerializeField] float zoomedInFov = 30f;
     [SerializeField] float zoomOutSensitivity = 2f;
     [SerializeField] float zoomInSensitivity = 0.5f;
+    [SerializeField] float t = 5f;
 
     
     private void OnEnable()
@@ -42,14 +43,14 @@ public class WeaponZoom : MonoBehaviour
 
     private void ZoomIn()
     {
-        cinemachineVirtualCamera.m_Lens.FieldOfView = zoomedInFov;
+        cinemachineVirtualCamera.m_Lens.FieldOfView = Mathf.Lerp(cinemachineVirtualCamera.m_Lens.FieldOfView, zoomedInFov, t * Time.deltaTime);
         fpsController.RotationSpeed = zoomInSensitivity;
         //fpsCamera.fieldOfView = zoomedInFov;
     }
 
     private void ZoomOut()
     {
-        cinemachineVirtualCamera.m_Lens.FieldOfView = zoomedOutFOV;
+        cinemachineVirtualCamera.m_Lens.FieldOfView = Mathf.Lerp(cinemachineVirtualCamera.m_Lens.FieldOfView, zoomedOutFOV, t * Time.deltaTime);
         fpsController.RotationSpeed = zoomOutSensitivity;
     }
 }

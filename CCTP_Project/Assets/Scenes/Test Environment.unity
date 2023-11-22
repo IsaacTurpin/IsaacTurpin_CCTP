@@ -816,6 +816,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 774224255949104427, guid: 511b87fa7878d9d4eb4ace302286859a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 774224256521145748, guid: 511b87fa7878d9d4eb4ace302286859a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 774224256521145748, guid: 511b87fa7878d9d4eb4ace302286859a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -856,7 +871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 210, y: 257}
+  m_AnchoredPosition: {x: 210, y: 81}
   m_SizeDelta: {x: 217.8089, y: 31.0991}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &510588407
@@ -1192,6 +1207,11 @@ PrefabInstance:
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 163399242}
+    - target: {fileID: 160585386644669387, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: ammoSlots.Array.data[0].ammoAmount
+      value: 700
+      objectReference: {fileID: 0}
     - target: {fileID: 160585386644669390, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: m_Name
@@ -1257,21 +1277,84 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 971928841}
+    - target: {fileID: 727816872803820346, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletTrail
+      value: 
+      objectReference: {fileID: 7517262231699810761, guid: 3fd2befbed219bf45a72240227f2ee09,
+        type: 3}
+    - target: {fileID: 727816872803820346, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: cinemachineVirtualCamera
+      value: 
+      objectReference: {fileID: 1684871057}
     - target: {fileID: 727816872900092759, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 971928841}
+    - target: {fileID: 727816872900092759, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletTrail
+      value: 
+      objectReference: {fileID: 7517262231699810761, guid: 3fd2befbed219bf45a72240227f2ee09,
+        type: 3}
+    - target: {fileID: 727816872900092759, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: cinemachineVirtualCamera
+      value: 
+      objectReference: {fileID: 1684871057}
+    - target: {fileID: 943261459318794883, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: t
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853632692319100435, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: t
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 971928841}
     - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
-      propertyPath: ammoText
+      propertyPath: BulletTrail
       value: 
-      objectReference: {fileID: 971928841}
+      objectReference: {fileID: 7517262231699810761, guid: 3fd2befbed219bf45a72240227f2ee09,
+        type: 3}
+    - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: Mask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: AddBulletSpread
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletSpawnPoint
+      value: 
+      objectReference: {fileID: 1352381341}
+    - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: cinemachineVirtualCamera
+      value: 
+      objectReference: {fileID: 1684871057}
     - target: {fileID: 6223789334070572585, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8479747784185717895, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: cinemachineVirtualCamera
+      value: 
+      objectReference: {fileID: 1684871057}
     - target: {fileID: 8950573257509198005, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: impactCanvas
@@ -2925,6 +3008,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325698017}
   m_CullTransparentMesh: 1
+--- !u!4 &1352381341 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8446625651881962193, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+    type: 3}
+  m_PrefabInstance: {fileID: 747543924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1379048995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2960,7 +3049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 210, y: 204}
+  m_AnchoredPosition: {x: 210, y: 28}
   m_SizeDelta: {x: 217.8089, y: 31.0991}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1379048997
@@ -3727,6 +3816,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1684871057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5637862402152984388, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+    type: 3}
+  m_PrefabInstance: {fileID: 747543924}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1700108305
 GameObject:
   m_ObjectHideFlags: 0
@@ -3837,7 +3938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 258.48206, y: 158}
+  m_AnchoredPosition: {x: 258.48206, y: -18}
   m_SizeDelta: {x: 314.7729, y: 31.0991}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1754055276
