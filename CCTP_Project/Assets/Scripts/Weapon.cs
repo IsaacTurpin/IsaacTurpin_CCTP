@@ -29,6 +29,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float bulletSpeed = 100f;
     EnemyHealth target;
 
+    public bool TrailActive = true;
+
     bool canShoot = true;
 
     private void OnEnable()
@@ -45,6 +47,7 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         DisplayAmmo();
+        CheckTrailActive();
 
         if (fire.ReadValue<float>() > 0.5 && canShoot == true)
         {
@@ -175,5 +178,17 @@ public class Weapon : MonoBehaviour
     {
         GameObject impact = Instantiate(hitEnemyEffect, HitPoint, Quaternion.LookRotation(HitNormal));
         Destroy(impact, 1);
+    }
+
+    void CheckTrailActive()
+    {
+        if(!TrailActive)
+        {
+            BulletTrail.enabled = false;
+        }
+        else
+        {
+            BulletTrail.enabled = true;
+        }
     }
 }
