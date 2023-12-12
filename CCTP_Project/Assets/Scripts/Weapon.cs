@@ -29,7 +29,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float bulletSpeed = 100f;
     EnemyHealth target;
 
-    public bool TrailActive = true;
+    [SerializeField] GameObject TrailsObject;
+    private bool TrailActive = true;
+    
 
     bool canShoot = true;
 
@@ -182,6 +184,7 @@ public class Weapon : MonoBehaviour
 
     void CheckTrailActive()
     {
+        TrailActive = TrailsObject.activeInHierarchy;
         if(!TrailActive)
         {
             BulletTrail.enabled = false;
