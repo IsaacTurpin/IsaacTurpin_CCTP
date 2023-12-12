@@ -31,7 +31,8 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] GameObject TrailsObject;
     private bool TrailActive = true;
-    
+    [SerializeField] GameObject MuzzleflashObject;
+    private bool MuzzleflashActive = true;
 
     bool canShoot = true;
 
@@ -49,7 +50,7 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         DisplayAmmo();
-        CheckTrailActive();
+        CheckTogglesActive();
 
         if (fire.ReadValue<float>() > 0.5 && canShoot == true)
         {
@@ -84,7 +85,11 @@ public class Weapon : MonoBehaviour
 
     private void PlayMuzzleFlash()
     {
-        muzzleFlash.Play();
+        if(MuzzleflashActive)
+        {
+            muzzleFlash.Play();
+        }
+        
     }
 
     private void ProcessRaycast()
@@ -182,8 +187,9 @@ public class Weapon : MonoBehaviour
         Destroy(impact, 1);
     }
 
-    void CheckTrailActive()
+    void CheckTogglesActive()
     {
+        //Trails
         TrailActive = TrailsObject.activeInHierarchy;
         if(!TrailActive)
         {
@@ -193,5 +199,8 @@ public class Weapon : MonoBehaviour
         {
             BulletTrail.enabled = true;
         }
+
+        //Muzzleflash
+        MuzzleflashActive = MuzzleflashObject.activeInHierarchy;
     }
 }
