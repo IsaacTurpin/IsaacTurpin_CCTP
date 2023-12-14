@@ -17,6 +17,10 @@ public class Weapon : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitEffect;
     [SerializeField] GameObject hitEnemyEffect;
+    [SerializeField] GameObject hitWoodEffect;
+    [SerializeField] GameObject hitStoneEffect;
+    [SerializeField] GameObject hitSandEffect;
+
     [SerializeField] Ammo ammoSlot;
     [SerializeField] AmmoType ammoType;
     [SerializeField] float timeBetweenShots = 0.5f;
@@ -28,6 +32,11 @@ public class Weapon : MonoBehaviour
     [SerializeField] private TrailRenderer BulletTrail;
     [SerializeField] private float bulletSpeed = 100f;
     EnemyHealth target;
+    bool hitWood;
+    bool hitStone;
+    bool hitSand;
+
+
 
     [SerializeField] GameObject TrailsObject;
     private bool TrailActive = true;
@@ -101,6 +110,20 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(FPCamera.transform.position /*BulletSpawnPoint.position*/ ,  direction, out hit, range, Mask))
         {
             target = hit.transform.GetComponent<EnemyHealth>();
+            if(hit.collider.gameObject.tag == "Wood")
+            {
+                hitWood = true;
+            }
+            if (hit.collider.gameObject.tag == "Stone")
+            {
+                hitStone = true;
+            }
+            if (hit.collider.gameObject.tag == "Sand")
+            {
+                hitSand = true;
+            }
+
+
             //EnemyHealth HitEnemy = hit.transform.GetComponent<EnemyHealth>();
             StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
         }
@@ -166,7 +189,26 @@ public class Weapon : MonoBehaviour
         //EnemyHealth target =  //hit.transform.GetComponent<EnemyHealth>();
         if (target == null)
         {
-            CreateHitImpact(HitPoint, HitNormal);
+            if(hitWood)
+            {
+                CreateWoodHitImpact(HitPoint, HitNormal);
+                hitWood = false;
+            }
+            if(hitStone)
+            {
+                CreateStoneHitImpact(HitPoint, HitNormal);
+                hitStone = false;
+            }
+            if(hitSand)
+            {
+                CreateSandHitImpact(HitPoint, HitNormal);
+                hitSand = false;
+            }
+            else
+            {
+                CreateHitImpact(HitPoint, HitNormal);
+            }
+            
             return;
         }
         else
@@ -184,6 +226,21 @@ public class Weapon : MonoBehaviour
     private void CreateEnemyHitImpact(Vector3 HitPoint, Vector3 HitNormal)
     {
         GameObject impact = Instantiate(hitEnemyEffect, HitPoint, Quaternion.LookRotation(HitNormal));
+        Destroy(impact, 1);
+    }
+    private void CreateWoodHitImpact(Vector3 HitPoint, Vector3 HitNormal)
+    {
+        GameObject impact = Instantiate(hitWoodEffect, HitPoint, Quaternion.LookRotation(HitNormal));
+        Destroy(impact, 1);
+    }
+    private void CreateStoneHitImpact(Vector3 HitPoint, Vector3 HitNormal)
+    {
+        GameObject impact = Instantiate(hitStoneEffect, HitPoint, Quaternion.LookRotation(HitNormal));
+        Destroy(impact, 1);
+    }
+    private void CreateSandHitImpact(Vector3 HitPoint, Vector3 HitNormal)
+    {
+        GameObject impact = Instantiate(hitSandEffect, HitPoint, Quaternion.LookRotation(HitNormal));
         Destroy(impact, 1);
     }
 
