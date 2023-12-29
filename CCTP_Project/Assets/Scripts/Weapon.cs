@@ -37,11 +37,13 @@ public class Weapon : MonoBehaviour
     bool hitSand;
 
 
-
+    //Objects for toggle effects menu
     [SerializeField] GameObject TrailsObject;
     private bool TrailActive = true;
     [SerializeField] GameObject MuzzleflashObject;
     private bool MuzzleflashActive = true;
+    [SerializeField] GameObject HitImpactsObject;
+    private bool HitImpactsActive = true;
 
     bool canShoot = true;
 
@@ -218,32 +220,49 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    //Creating Hit Impacts
     private void CreateHitImpact(Vector3 HitPoint, Vector3 HitNormal)
     {
-        GameObject impact = Instantiate(hitEffect, HitPoint, Quaternion.LookRotation(HitNormal));
-        Destroy(impact, 1);
+        if (HitImpactsActive)
+        {
+            GameObject impact = Instantiate(hitEffect, HitPoint, Quaternion.LookRotation(HitNormal));
+            Destroy(impact, 1);
+        }
     }
     private void CreateEnemyHitImpact(Vector3 HitPoint, Vector3 HitNormal)
     {
-        GameObject impact = Instantiate(hitEnemyEffect, HitPoint, Quaternion.LookRotation(HitNormal));
-        Destroy(impact, 1);
+        if (HitImpactsActive)
+        {
+            GameObject impact = Instantiate(hitEnemyEffect, HitPoint, Quaternion.LookRotation(HitNormal));
+            Destroy(impact, 1);
+        }
     }
     private void CreateWoodHitImpact(Vector3 HitPoint, Vector3 HitNormal)
     {
-        GameObject impact = Instantiate(hitWoodEffect, HitPoint, Quaternion.LookRotation(HitNormal));
-        Destroy(impact, 1);
+        if (HitImpactsActive)
+        {
+            GameObject impact = Instantiate(hitWoodEffect, HitPoint, Quaternion.LookRotation(HitNormal));
+            Destroy(impact, 1);
+        }
     }
     private void CreateStoneHitImpact(Vector3 HitPoint, Vector3 HitNormal)
     {
-        GameObject impact = Instantiate(hitStoneEffect, HitPoint, Quaternion.LookRotation(HitNormal));
-        Destroy(impact, 1);
+        if (HitImpactsActive)
+        {
+            GameObject impact = Instantiate(hitStoneEffect, HitPoint, Quaternion.LookRotation(HitNormal));
+            Destroy(impact, 1);
+        }
     }
     private void CreateSandHitImpact(Vector3 HitPoint, Vector3 HitNormal)
     {
-        GameObject impact = Instantiate(hitSandEffect, HitPoint, Quaternion.LookRotation(HitNormal));
-        Destroy(impact, 1);
+        if (HitImpactsActive)
+        {
+            GameObject impact = Instantiate(hitSandEffect, HitPoint, Quaternion.LookRotation(HitNormal));
+            Destroy(impact, 1);
+        }
     }
 
+    //Checking toggle effects
     void CheckTogglesActive()
     {
         //Trails
@@ -259,5 +278,8 @@ public class Weapon : MonoBehaviour
 
         //Muzzleflash
         MuzzleflashActive = MuzzleflashObject.activeInHierarchy;
+
+        //BulletImpacts
+        HitImpactsActive = HitImpactsObject.activeInHierarchy;
     }
 }
