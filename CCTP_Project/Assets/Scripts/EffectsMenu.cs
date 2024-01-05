@@ -11,7 +11,10 @@ public class EffectsMenu : MonoBehaviour
     [SerializeField] FirstPersonController fpsController;
     public static bool GameIsPaused = false;
     [SerializeField] GameObject ammoCanvas;
-
+    [SerializeField] GameObject startMenu;
+    private bool startMenuActive;
+    [SerializeField] GameObject tutorialMenu;
+    private bool tutorialMenuActive;
     private void OnEnable()
     {
         pause.Enable();
@@ -25,6 +28,16 @@ public class EffectsMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        startMenuActive = startMenu.activeInHierarchy;
+        if(startMenuActive)
+        {
+            return;
+        }
+        tutorialMenuActive = tutorialMenu.activeInHierarchy;
+        if (tutorialMenuActive)
+        {
+            return;
+        }
         var wasPressed = pause.triggered && pause.ReadValue<float>() > 0;
 
         if(wasPressed)
