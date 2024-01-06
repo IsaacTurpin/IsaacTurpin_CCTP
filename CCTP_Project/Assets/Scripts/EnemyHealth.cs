@@ -8,6 +8,14 @@ public class EnemyHealth : MonoBehaviour
 
     bool isDead = false;
 
+    //Collider enemyCollider;
+    CapsuleCollider enemyCollider;
+
+    private void Start()
+    {
+        enemyCollider = GetComponent<CapsuleCollider>();
+    }
+
     public bool IsDead()
     {
         return isDead;
@@ -29,5 +37,7 @@ public class EnemyHealth : MonoBehaviour
 
         isDead = true;
         GetComponent<Animator>().SetTrigger("die");
+        enemyCollider.direction = 2;
+        enemyCollider.center = Vector3.zero;
     }
 }

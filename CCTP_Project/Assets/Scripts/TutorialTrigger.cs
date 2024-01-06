@@ -7,6 +7,7 @@ public class TutorialTrigger : MonoBehaviour
     [SerializeField] GameObject TutorialMenu;
     [SerializeField] GameObject MenuCanvas;
     TutorialUI tutorialUI;
+    private bool hasEntered;
 
     private void Start()
     {
@@ -15,10 +16,12 @@ public class TutorialTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (hasEntered) { return; }
         if(other != null)
         {
             TutorialMenu.SetActive(true);
             tutorialUI.Pause();
+            hasEntered = true;
         }
     }
 }
