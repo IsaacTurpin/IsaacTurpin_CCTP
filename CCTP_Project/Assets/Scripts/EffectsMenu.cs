@@ -15,6 +15,8 @@ public class EffectsMenu : MonoBehaviour
     private bool startMenuActive;
     [SerializeField] GameObject tutorialMenu;
     private bool tutorialMenuActive;
+    [SerializeField] GameObject EnemyPrefab;
+    [SerializeField] GameObject EnemySpawnPoint;
     private void OnEnable()
     {
         pause.Enable();
@@ -75,5 +77,10 @@ public class EffectsMenu : MonoBehaviour
         FindObjectOfType<WeaponSwitcher>().enabled = false;
         FindObjectOfType<WeaponZoom>().enabled = false;
         GameIsPaused = true;
+    }
+
+    public void SpawnEnemy()
+    {
+        Instantiate(EnemyPrefab, EnemySpawnPoint.transform.position, Quaternion.identity);
     }
 }

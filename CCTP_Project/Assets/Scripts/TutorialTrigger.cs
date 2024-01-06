@@ -8,6 +8,8 @@ public class TutorialTrigger : MonoBehaviour
     [SerializeField] GameObject MenuCanvas;
     TutorialUI tutorialUI;
     private bool hasEntered;
+    [SerializeField] GameObject nextEffectsElements;
+    [SerializeField] GameObject oldEffectsElements;
 
     private void Start()
     {
@@ -22,6 +24,26 @@ public class TutorialTrigger : MonoBehaviour
             TutorialMenu.SetActive(true);
             tutorialUI.Pause();
             hasEntered = true;
+            TurnOnEffects();
+            TurnOffEffects();
         }
+    }
+
+    void TurnOnEffects()
+    {
+        if(nextEffectsElements != null)
+        {
+            nextEffectsElements.SetActive(true);
+        }
+        
+    }
+    
+    void TurnOffEffects()
+    {
+        if(oldEffectsElements != null)
+        {
+            oldEffectsElements.SetActive(false);
+        }
+        
     }
 }
