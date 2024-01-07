@@ -9,6 +9,7 @@ public class TutorialTrigger : MonoBehaviour
     TutorialUI tutorialUI;
     private bool hasEntered;
     [SerializeField] GameObject nextEffectsElements;
+    [SerializeField] GameObject nextEffectsElements2;
     [SerializeField] GameObject oldEffectsElements;
 
     private void Start()
@@ -35,7 +36,12 @@ public class TutorialTrigger : MonoBehaviour
         {
             nextEffectsElements.SetActive(true);
         }
-        
+
+        if (nextEffectsElements2 != null)
+        {
+            nextEffectsElements2.SetActive(true);
+        }
+
     }
     
     void TurnOffEffects()
