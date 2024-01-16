@@ -8,6 +8,7 @@ TagManager:
   - Wood
   - Stone
   - Sand
+  - EnemyHealthBar
   layers:
   - Default
   - TransparentFX
