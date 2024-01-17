@@ -18,11 +18,20 @@ public class EnemyHealth : MonoBehaviour
     //Collider enemyCollider;
     CapsuleCollider enemyCollider;
 
-    private void Start()
+    private void OnEnable()
     {
         enemyCollider = GetComponent<CapsuleCollider>();
         startingHealth = hitPoints;
         HealthBarEnabled = GameObject.FindGameObjectWithTag("EnemyHealthBar");
+        if(HealthBarEnabled == null)
+        {
+            HealthBar.SetActive(false);
+        }
+    }
+
+    private void Start()
+    {
+
     }
 
     private void Update()
@@ -35,15 +44,17 @@ public class EnemyHealth : MonoBehaviour
         {
             HealthBarActive = HealthBarEnabled.activeInHierarchy;
         }
-        
+       
+
         if(!HealthBarActive)
         {
             HealthBar.SetActive(false);
         }
-        else
+        if(HealthBarActive && HealthBarEnabled && !isDead)
         {
             HealthBar.SetActive(true);
         }
+       
     }
 
     public bool IsDead()
@@ -64,14 +75,11 @@ public class EnemyHealth : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        if(HealthBarActive)
+        if (healthBarFill != null)
         {
-            if (healthBarFill != null)
-            {
-                healthBarFill.fillAmount = hitPoints / startingHealth;
-            }
+            healthBarFill.fillAmount = hitPoints / startingHealth;
         }
-
+        
     }
 
     private void Die()
@@ -82,5 +90,6 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<Animator>().SetTrigger("die");
         enemyCollider.direction = 2;
         enemyCollider.center = Vector3.zero;
+        HealthBar.SetActive(false);
     }
 }
