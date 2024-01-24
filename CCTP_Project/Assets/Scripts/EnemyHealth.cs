@@ -13,6 +13,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] GameObject HealthBar;
     private bool HealthBarActive = true;
 
+    [SerializeField] GameObject MiniMapIcon;
+
     bool isDead = false;
 
     //Collider enemyCollider;
@@ -91,5 +93,6 @@ public class EnemyHealth : MonoBehaviour
         enemyCollider.direction = 2;
         enemyCollider.center = Vector3.zero;
         HealthBar.SetActive(false);
+        MiniMapIcon.SetActive(false);
     }
 }
