@@ -907,6 +907,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullets Pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 4699878748885325819, guid: 2fe634f81e0df0d44b0391c053ff88d5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7585984622925394663, guid: 2fe634f81e0df0d44b0391c053ff88d5,
         type: 3}
       propertyPath: m_Enabled

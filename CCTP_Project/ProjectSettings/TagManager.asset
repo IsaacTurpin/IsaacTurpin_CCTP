@@ -9,6 +9,7 @@ TagManager:
   - Stone
   - Sand
   - EnemyHealthBar
+  - Pickup
   layers:
   - Default
   - TransparentFX
