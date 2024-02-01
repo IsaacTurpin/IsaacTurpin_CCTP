@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 2337074159000356742}
   - component: {fileID: 2337074158999389510}
   - component: {fileID: 9203004926116704971}
+  - component: {fileID: 1208607629882901041}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -387,6 +388,9 @@ MonoBehaviour:
     type: 3}
   hitEnemyEffect: {fileID: 3007503469236051794, guid: 17861ea26f1c8b2439d02cf029cf4451,
     type: 3}
+  hitWoodEffect: {fileID: 0}
+  hitStoneEffect: {fileID: 0}
+  hitSandEffect: {fileID: 0}
   ammoSlot: {fileID: 0}
   ammoType: 1
   timeBetweenShots: 1.5
@@ -395,10 +399,59 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   BulletSpawnPoint: {fileID: 882031500728764329}
-  AddBulletSpread: 1
+  AddBulletSpread: 0
   BulletSpreadVariance: {x: 0.1, y: 0.1, z: 0.1}
   BulletTrail: {fileID: 7517262231699810761, guid: 3fd2befbed219bf45a72240227f2ee09,
     type: 3}
+  bulletSpeed: 100
+  TrailsObject: {fileID: 0}
+  MuzzleflashObject: {fileID: 0}
+  HitImpactsObject: {fileID: 0}
+  raycastClusterSpread: 0.12
+--- !u!114 &1208607629882901041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337074158997199750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59821211318d124d90632a610e4855a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoom:
+    m_Name: Zoom
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: dde6d71a-af92-4c10-86a0-138af2b3e490
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ab942886-7705-4a74-8e61-46676fc2aed3
+      m_Path: <Gamepad>/leftTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Zoom
+      m_Flags: 0
+    - m_Name: 
+      m_Id: ba6f4469-16b1-4769-831c-d40d00cdacd4
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Zoom
+      m_Flags: 0
+    m_Flags: 0
+  cinemachineVirtualCamera: {fileID: 0}
+  fpsController: {fileID: 0}
+  zoomedOutFOV: 80
+  zoomedInFov: 30
+  zoomOutSensitivity: 2
+  zoomInSensitivity: 0.5
+  t: 5
 --- !u!1 &2337074158997199752
 GameObject:
   m_ObjectHideFlags: 0

@@ -4872,6 +4872,11 @@ PrefabInstance:
       propertyPath: ammoSlots.Array.data[0].ammoAmount
       value: 700
       objectReference: {fileID: 0}
+    - target: {fileID: 160585386644669387, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: ammoSlots.Array.data[1].ammoAmount
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 160585386644669390, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: m_Name
@@ -4969,6 +4974,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 727816872803820346, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 727816872803820346, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 971928841}
@@ -5020,6 +5030,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 727816872803820346, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
+      propertyPath: AddBulletSpread
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 727816872803820346, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
       propertyPath: HitImpactsObject
       value: 
       objectReference: {fileID: 589139845}
@@ -5028,6 +5043,26 @@ PrefabInstance:
       propertyPath: MuzzleflashObject
       value: 
       objectReference: {fileID: 108898201}
+    - target: {fileID: 727816872803820346, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: raycastClusterSpread
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 727816872803820346, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletSpreadVariance.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 727816872803820346, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletSpreadVariance.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 727816872803820346, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletSpreadVariance.z
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 727816872803820346, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: cinemachineVirtualCamera
@@ -5086,6 +5121,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 727816872900092759, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
+      propertyPath: AddBulletSpread
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 727816872900092759, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
       propertyPath: HitImpactsObject
       value: 
       objectReference: {fileID: 589139845}
@@ -5094,6 +5134,21 @@ PrefabInstance:
       propertyPath: MuzzleflashObject
       value: 
       objectReference: {fileID: 108898201}
+    - target: {fileID: 727816872900092759, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletSpreadVariance.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 727816872900092759, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletSpreadVariance.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 727816872900092759, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletSpreadVariance.z
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 727816872900092759, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: cinemachineVirtualCamera
@@ -5168,7 +5223,7 @@ PrefabInstance:
     - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: AddBulletSpread
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
@@ -5185,6 +5240,21 @@ PrefabInstance:
       propertyPath: MuzzleflashObject
       value: 
       objectReference: {fileID: 108898201}
+    - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletSpreadVariance.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletSpreadVariance.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: BulletSpreadVariance.z
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: cinemachineVirtualCamera
@@ -5204,6 +5274,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoom.m_Id
+      value: dde6d71a-af92-4c10-86a0-138af2b3e490
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoomedInFov
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: fpsController
+      value: 
+      objectReference: {fileID: 894892454}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: cinemachineVirtualCamera
+      value: 
+      objectReference: {fileID: 1684871057}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoom.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoom.m_SingletonActionBindings.Array.data[0].m_Id
+      value: ab942886-7705-4a74-8e61-46676fc2aed3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoom.m_SingletonActionBindings.Array.data[1].m_Id
+      value: ba6f4469-16b1-4769-831c-d40d00cdacd4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoom.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Gamepad>/leftTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoom.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Mouse>/rightButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoom.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Zoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoom.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Zoom
       objectReference: {fileID: 0}
     - target: {fileID: 7418933363882267555, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}

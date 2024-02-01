@@ -47,6 +47,9 @@ public class Weapon : MonoBehaviour
 
     bool canShoot = true;
 
+    bool usingShells;
+    [SerializeField] private float raycastClusterSpread = 0.12f;
+
     private void OnEnable()
     {
         fire.Enable();
@@ -70,7 +73,11 @@ public class Weapon : MonoBehaviour
 
         if (ammoType.ToString() == "Shells")
         {
-            cinemachineVirtualCamera.m_Lens.FieldOfView = 80;
+            usingShells = true;
+        }
+        else
+        {
+            usingShells= false;
         }
     }
 
@@ -82,16 +89,59 @@ public class Weapon : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        canShoot = false;
-        if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
+        Vector3 rayCastOrigin = FPCamera.transform.position;
+        Vector3 direction = GetDirection();
+        switch (usingShells)
         {
-            PlayMuzzleFlash();
-            ProcessRaycast();
-            ammoSlot.ReduceCurrentAmmo(ammoType);
+            case false:
+                canShoot = false;
+                if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
+                {
+                    PlayMuzzleFlash();
+                    ProcessRaycast(rayCastOrigin, direction);
+                    ammoSlot.ReduceCurrentAmmo(ammoType);
 
+                }
+                yield return new WaitForSeconds(timeBetweenShots);
+                canShoot = true;
+                break;
+
+            case true:
+                canShoot = false;
+                if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
+                {
+                    PlayMuzzleFlash();
+                    ProcessRaycast(rayCastOrigin, direction);
+                    ammoSlot.ReduceCurrentAmmo(ammoType);
+                    //Define positions for Raycast cluster
+                    Vector3 up = FPCamera.transform.up * direction.y;
+                    Vector3 down = -FPCamera.transform.up * -direction.y;
+                    Vector3 right = FPCamera.transform.right * direction.x;
+                    Vector3 left = -FPCamera.transform.right * -direction.x;
+
+                    Vector3 upRight = (up + right).normalized * raycastClusterSpread;
+                    Vector3 upLeft = (up + left).normalized * raycastClusterSpread;
+                    Vector3 downRight = (down + right).normalized * raycastClusterSpread;
+                    Vector3 downLeft = (down + left).normalized * raycastClusterSpread;
+
+                    //Shoot cluster of raycasts
+                    //ProcessRaycast(rayCastOrigin, FPCamera.transform.forward);
+
+                    ProcessRaycast(rayCastOrigin + up, FPCamera.transform.forward);
+                    ProcessRaycast(rayCastOrigin + down, FPCamera.transform.forward);
+                    ProcessRaycast(rayCastOrigin + right, FPCamera.transform.forward);
+                    ProcessRaycast(rayCastOrigin + left, FPCamera.transform.forward);
+
+                    ProcessRaycast(rayCastOrigin + upRight, FPCamera.transform.forward);
+                    ProcessRaycast(rayCastOrigin + upLeft, FPCamera.transform.forward);
+                    ProcessRaycast(rayCastOrigin + downRight, FPCamera.transform.forward);
+                    ProcessRaycast(rayCastOrigin + downLeft, FPCamera.transform.forward);
+
+                }
+                yield return new WaitForSeconds(timeBetweenShots);
+                canShoot = true;
+                break;
         }
-        yield return new WaitForSeconds(timeBetweenShots);
-        canShoot = true;
     }
 
     private void PlayMuzzleFlash()
@@ -103,13 +153,13 @@ public class Weapon : MonoBehaviour
         
     }
 
-    private void ProcessRaycast()
+    private void ProcessRaycast(Vector3 position, Vector3 direction)
     {
-        Vector3 direction = GetDirection();
+        
         RaycastHit hit;
         
         TrailRenderer trail = Instantiate(BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
-        if (Physics.Raycast(FPCamera.transform.position /*BulletSpawnPoint.position*/ ,  direction, out hit, range, Mask))
+        if (Physics.Raycast(position /*BulletSpawnPoint.position*/ ,  direction, out hit, range, Mask))
         {
             target = hit.transform.GetComponent<EnemyHealth>();
             if(hit.collider.gameObject.tag == "Wood")
