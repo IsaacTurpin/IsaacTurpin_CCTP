@@ -6,6 +6,7 @@ using TMPro;
 using Cinemachine;
 using UnityEngine.InputSystem.HID;
 using JetBrains.Annotations;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] AmmoType ammoType;
     [SerializeField] float timeBetweenShots = 0.5f;
     [SerializeField] TextMeshProUGUI ammoText;
+    [SerializeField] Image bulletImage;
+    [SerializeField] Image shellsImage;
     [SerializeField] private LayerMask Mask;
     [SerializeField] private Transform BulletSpawnPoint;
     [SerializeField] private bool AddBulletSpread = true;
@@ -85,6 +88,23 @@ public class Weapon : MonoBehaviour
     {
         int currentAmmo = ammoSlot.GetCurrentAmmo(ammoType);
         ammoText.text = currentAmmo.ToString();
+
+        if(usingShells)
+        {
+            if(shellsImage != null) 
+            {
+                shellsImage.enabled = true;
+                bulletImage.enabled = false;
+            }
+        }
+        else
+        {
+            if(bulletImage != null) 
+            {
+                bulletImage.enabled = true;
+                shellsImage.enabled = false;
+            }
+        }
     }
 
     IEnumerator Shoot()
