@@ -34,6 +34,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Vector3 BulletSpreadVariance = new Vector3(0.1f, 0.1f, 0.1f);
     [SerializeField] private TrailRenderer BulletTrail;
     [SerializeField] private float bulletSpeed = 100f;
+    [SerializeField] GameObject hitmarker;
+    [SerializeField] float hitmarkerLifespan = 0.2f;
     EnemyHealth target;
     bool hitWood;
     bool hitStone;
@@ -47,6 +49,8 @@ public class Weapon : MonoBehaviour
     private bool MuzzleflashActive = true;
     [SerializeField] GameObject HitImpactsObject;
     private bool HitImpactsActive = true;
+    [SerializeField] GameObject HitmarkersObject;
+    private bool HitMarkersActive = true;
 
     bool canShoot = true;
 
@@ -286,6 +290,13 @@ public class Weapon : MonoBehaviour
         else
         {
             CreateEnemyHitImpact(HitPoint, HitNormal);
+            if(HitMarkersActive)
+            {
+                if(!target.IsDead())
+                {
+                    SetHitmarkerActive();
+                } 
+            }
             target.TakeDamage(damage);
         }
     }
@@ -332,6 +343,17 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    void SetHitmarkerActive()
+    {
+        hitmarker.SetActive(true);
+        Invoke("HitmarkerDisable", hitmarkerLifespan);
+
+    }
+    void HitmarkerDisable()
+    {
+        hitmarker.SetActive(false);
+    }
+
     //Checking toggle effects
     void CheckTogglesActive()
     {
@@ -351,5 +373,8 @@ public class Weapon : MonoBehaviour
 
         //BulletImpacts
         HitImpactsActive = HitImpactsObject.activeInHierarchy;
+
+        //Hitmarkers
+        HitMarkersActive = HitmarkersObject.activeInHierarchy;
     }
 }
