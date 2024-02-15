@@ -10,6 +10,7 @@ public class TutorialTrigger : MonoBehaviour
     private bool hasEntered;
     [SerializeField] GameObject nextEffectsElements;
     [SerializeField] GameObject nextEffectsElements2;
+    [SerializeField] GameObject nextEffectsElements3;
     [SerializeField] GameObject oldEffectsElements;
 
     private void Start()
@@ -40,6 +41,11 @@ public class TutorialTrigger : MonoBehaviour
         if (nextEffectsElements2 != null)
         {
             nextEffectsElements2.SetActive(true);
+        }
+
+        if (nextEffectsElements3 != null)
+        {
+            nextEffectsElements3.SetActive(true);
         }
 
     }

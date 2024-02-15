@@ -7,11 +7,14 @@ public class HandleMazeCompletion : MonoBehaviour
 {
     [SerializeField] GameObject player;
     [SerializeField] GameObject respawnPoint;
+    [SerializeField] GameObject timerManager;
+    Timer timer;
     FirstPersonController fpsController;
 
     private void Start()
     {
         fpsController = player.GetComponent<FirstPersonController>();
+        timer = timerManager.GetComponent<Timer>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +29,7 @@ public class HandleMazeCompletion : MonoBehaviour
     void RespawnPlayer()
     {
         fpsController.enabled = false;
+        timer.timerEnabled = false;
         player.transform.position = respawnPoint.transform.position;
         player.transform.eulerAngles = respawnPoint.transform.eulerAngles;
         Invoke(("EnableController"), 0.1f);
