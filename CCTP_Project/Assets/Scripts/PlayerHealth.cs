@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float hitPoints = 100f;
+    [SerializeField] public float hitPoints = 100f;
     [SerializeField] Image healthBarFill;
     [SerializeField] private float startingHealth;
 
@@ -21,6 +21,24 @@ public class PlayerHealth : MonoBehaviour
         if(hitPoints <= 0)
         {
             GetComponent<DeathHandler>().HandleDeath();
+        }
+    }
+
+    public void IncreaseHealth()
+    {
+        hitPoints = startingHealth;
+        UpdateHealthBar();
+    }
+
+    public bool IsAtMaxHealth()
+    {
+        if(hitPoints == startingHealth)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
