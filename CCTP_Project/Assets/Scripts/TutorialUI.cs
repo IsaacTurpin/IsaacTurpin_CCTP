@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class TutorialUI : MonoBehaviour
 {
     [SerializeField] GameObject tutorialMenu;
     [SerializeField] FirstPersonController fpsController;
     public static bool GameIsPaused = false;
+
+    [SerializeField] GameObject tutorialUIFirst;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class TutorialUI : MonoBehaviour
 
     public void Resume()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         tutorialMenu.SetActive(false);
@@ -36,6 +40,7 @@ public class TutorialUI : MonoBehaviour
 
     public void Pause()
     {
+        EventSystem.current.SetSelectedGameObject(tutorialUIFirst);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         tutorialMenu.SetActive(true);

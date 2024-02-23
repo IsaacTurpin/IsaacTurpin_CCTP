@@ -2,6 +2,7 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class EffectsMenu : MonoBehaviour
@@ -17,6 +18,8 @@ public class EffectsMenu : MonoBehaviour
     private bool tutorialMenuActive;
     [SerializeField] GameObject EnemyPrefab;
     [SerializeField] GameObject EnemySpawnPoint;
+
+    [SerializeField] GameObject effectsMenuFirst;
     private void OnEnable()
     {
         pause.Enable();
@@ -57,6 +60,7 @@ public class EffectsMenu : MonoBehaviour
 
     public void Resume()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         effectsMenuUI.SetActive(false);
@@ -69,6 +73,7 @@ public class EffectsMenu : MonoBehaviour
 
     void Pause()
     {
+        EventSystem.current.SetSelectedGameObject(effectsMenuFirst);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         effectsMenuUI.SetActive(true);

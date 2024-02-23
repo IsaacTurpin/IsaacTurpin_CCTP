@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class DeathHandler : MonoBehaviour
 {
-    [SerializeField] Canvas gameOverCanvas;
+    [SerializeField] GameObject gameOverCanvas;
 
     private void Start()
     {
-        gameOverCanvas.enabled = false;
+        gameOverCanvas.SetActive(false);
     }
 
     public void HandleDeath()
     {
-        gameOverCanvas.enabled = true;
+        gameOverCanvas.SetActive(true);
         Time.timeScale = 0;
         FindObjectOfType<FirstPersonController>().enabled = false;
         FindObjectOfType<WeaponSwitcher>().enabled = false;
