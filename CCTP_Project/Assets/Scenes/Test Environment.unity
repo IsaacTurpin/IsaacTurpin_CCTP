@@ -8255,6 +8255,11 @@ PrefabInstance:
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 218960131}
+    - target: {fileID: 160585386644669385, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: RotationSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 160585386644669387, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: ammoSlots.Array.data[0].ammoAmount
@@ -8587,10 +8592,30 @@ PrefabInstance:
       propertyPath: t
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 943261459318794883, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoomInSensitivity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 943261459318794883, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoomOutSensitivity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1853632692319100435, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: t
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853632692319100435, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoomInSensitivity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853632692319100435, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoomOutSensitivity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4123507985945583913, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
@@ -8738,6 +8763,16 @@ PrefabInstance:
       propertyPath: fpsController
       value: 
       objectReference: {fileID: 894892454}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoomInSensitivity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
+        type: 3}
+      propertyPath: zoomOutSensitivity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7308158652184368064, guid: 88f878a0c24fd0d47983469e4e2e2e41,
         type: 3}
       propertyPath: cinemachineVirtualCamera
